@@ -5,6 +5,24 @@ Created by Michael R. Year : 2021 - 26/02/2021 Personal learning courses
 ## My solution 1
 
 ```javascript
+function whatIsInAName(collection, source) {    
+
+  let arr = [];
+  let sourceKeys = Object.keys(source);
+
+  arr = collection.filter((obj) => {
+    for (let i = 0; i < sourceKeys.length; i++) {
+      if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+        return false;
+      }
+    }
+    return true;
+  })
+  
+  return arr;
+}
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 });
 
 ```
 
